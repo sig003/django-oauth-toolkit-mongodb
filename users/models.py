@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import ( BaseUserManager, AbstractBaseUser )
-#from djongo import models
+from djongo import models as djongoModels
 
 class UserManager(BaseUserManager):
     def create_user(self, email, name, password=None):
@@ -73,3 +73,10 @@ class UserIdTest(models.Model):
     class META:
         db_table = "userIdTest"
 
+
+class UserIdTest2(djongoModels.Model):
+    _id = djongoModels.ObjectIdField()
+    test = models.CharField(max_length=256)
+
+    class META:
+        db_table = "userIdTest2"
