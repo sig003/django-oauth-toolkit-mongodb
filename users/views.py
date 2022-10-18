@@ -1,5 +1,5 @@
 from .models import User
-from .serializers import RegisterSerializer, UserSerializer, ModifyUserPasswordSerializer
+from .serializers import RegisterSerializer, UserSerializer, ModifyUserPasswordSerializer, ModifyUserInfoeSerializer
 from rest_framework import generics, permissions
 from .permissions import IsAuthenticatedOrCreate
 from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope
@@ -24,3 +24,8 @@ class ModifyUserPassword(generics.UpdateAPIView):
     permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
     queryset = User.objects.all()
     serializer_class = ModifyUserPasswordSerializer
+
+class ModifyUserInfo(generics.UpdateAPIView):
+    permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
+    queryset = User.objects.all()
+    serializer_class = ModifyUserInfoeSerializer

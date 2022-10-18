@@ -71,3 +71,10 @@ class ModifyUserPasswordSerializer(serializers.ModelSerializer):
         instance.save()
 
         return instance
+
+class ModifyUserInfoeSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(required=True)
+
+    class Meta:
+        model = User
+        fields = ('name',)
