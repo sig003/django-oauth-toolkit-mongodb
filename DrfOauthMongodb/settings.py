@@ -126,7 +126,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
+    'REFRESH_TOKEN_EXPIRE_SECONDS': 3600,
+    'CLEAR_EXPIRED_TOKENS_BATCH_SIZE':10000,
+    'CLEAR_EXPIRED_TOKENS_BATCH_INTERVAL':1
 }
 
 REST_FRAMEWORK = {
