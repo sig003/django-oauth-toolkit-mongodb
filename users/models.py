@@ -63,20 +63,20 @@ class User(AbstractBaseUser):
     class Meta:
             db_table = "users"
 
-class UserIdTest(models.Model):
-    _id = models.UUIDField(
-#        default = uuid.uuid4,
-        editable = False
-    )
-    test = models.CharField(max_length=256)
+# class UserIdTest(models.Model):
+#     _id = models.UUIDField(
+# #        default = uuid.uuid4,
+#         editable = False
+#     )
+#     test = models.CharField(max_length=256)
 
-    class META:
-        db_table = "userIdTest"
+#     class Meta:
+#         db_table = "userIdTest"
 
 
-class UserIdTest2(djongoModels.Model):
-    _id = djongoModels.ObjectIdField()
-    test = models.CharField(max_length=256)
+# class UserIdTest2(djongoModels.Model):
+#     _id = djongoModels.ObjectIdField()
+#     test = models.CharField(max_length=256)
 
-    class META:
-        db_table = "userIdTest2"
+#     class Meta:
+#         db_table = "userIdTest2"

@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'rest_framework',
     'users',
+    'drf_house_test',
 ]
 
 MIDDLEWARE = [
@@ -128,7 +129,7 @@ OAUTH2_PROVIDER = {
     # this is the list of available scopes
     'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
     'REFRESH_TOKEN_EXPIRE_SECONDS': 3600,
-    'CLEAR_EXPIRED_TOKENS_BATCH_SIZE':10000,
+    'CLEAR_EXPIRED_TOKENS_BATCH_SIZE':1000,
     'CLEAR_EXPIRED_TOKENS_BATCH_INTERVAL':1
 }
 

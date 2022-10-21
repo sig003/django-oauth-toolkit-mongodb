@@ -1,0 +1,11 @@
+[
+    {
+      "model": "drf_house_test.Users",
+      "pk": 1,
+      "fields": {
+        "email": "test1@staybility.co.kr",
+        "name": "test1",
+        "house": ["JEJU-2022-1029-0003"]
+      }
+    }
+  ]
