@@ -21,6 +21,6 @@ admin.autodiscover()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
-    #path('drf/', include('drf_house_test.urls')),
+    path('drf/', include('drf_house_test.urls')),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 ]

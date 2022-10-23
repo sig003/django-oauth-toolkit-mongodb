@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from djongo import models as djongoModels
 
@@ -12,7 +13,7 @@ class Users(models.Model):
     email = djongoModels.CharField(max_length=256)
     name = djongoModels.CharField(max_length=256)
     house = djongoModels.ArrayField(
-        model_container=House,
+        model_container=House
     )
 
     class Meta:
