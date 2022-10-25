@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 from djongo import models as djongoModels
 
@@ -35,4 +34,4 @@ class Houses(models.Model):
     )
 
     class Meta:
-        db_table = "drf_houses"        
+        db_table = "drf_houses"
