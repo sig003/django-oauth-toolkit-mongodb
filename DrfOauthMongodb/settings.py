@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'users',
     'drf_house_test',
+    'pymongo_db_control',
 ]
 
 MIDDLEWARE = [

@@ -7,12 +7,20 @@ class HouseSerializer(serializers.Serializer):
 class InsertUserSerializers(serializers.ModelSerializer):
     email = serializers.CharField(required=True)
     name = serializers.CharField(required=True)
-    house = HouseSerializer(many=True)
+    house = serializers.ListField(required=True)
+    #house = HouseSerializer(many=True)
 
     class Meta:
         model = Users
         #fields = '__all__'
-        fields = ('email', 'name', 'house') 
+        fields = ('email', 'name', 'house')
 
+class SelectUserSerializers(serializers.ModelSerializer):
+    #email = serializers.CharField(read_only=True)
+    #name = serializers.CharField(read_only=True)
+    #house = HouseSerializer(read_only=True,many=True)
 
-    
+    class Meta:
+        model = Users
+        #fields = '__all__'
+        fields = ('email',)

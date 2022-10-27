@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('drf/', include('drf_house_test.urls')),
+    path('pymongo/', include('pymongo_db_control.urls')),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 ]

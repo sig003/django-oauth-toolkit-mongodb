@@ -11,12 +11,16 @@ class Users(models.Model):
     _id = djongoModels.ObjectIdField()
     email = djongoModels.CharField(max_length=256)
     name = djongoModels.CharField(max_length=256)
-    house = djongoModels.ArrayField(
-        model_container=House
-    )
+    #house = djongoModels.CharField(max_length=256)
+    house = djongoModels.JSONField()
+    # house = djongoModels.ArrayField(
+    #      model_container=House
+    #  )
 
     class Meta:
         db_table = "drf_users"
+
+    objects = djongoModels.DjongoManager()
 
 class Address(models.Model):
     main = models.CharField(max_length=256)
