@@ -2,28 +2,10 @@ from rest_framework import viewsets, status
 import pymongo
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
-# import os, json
-# from pathlib import Path
-# from django.core.exceptions import ImproperlyConfigured
 from bson import json_util
-from core.views import *
+from core.utils import *
 
 MONGODB_HOST_FILE = getMongoDBConnectHostFile()
-
-# BASE_DIR = Path(__file__).resolve().parent.parent
-
-# secret_file = os.path.join(BASE_DIR, 'secrets.json')
-# with open(secret_file) as f:
-#     secrets = json.loads(f.read())
-
-# def get_secret(setting):
-#     try:
-#         return secrets[setting]
-#     except KeyError:
-#         error_msg = "Set the {} environment variable".format(setting)
-#         raise ImproperlyConfigured(error_msg)
-
-# MONGODB_HOST_FILE = get_secret("MONGODB_HOST")
 
 client = pymongo.MongoClient(MONGODB_HOST_FILE)
 dbname = client['test_db']
