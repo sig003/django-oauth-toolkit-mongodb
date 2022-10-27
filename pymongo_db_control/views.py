@@ -2,26 +2,28 @@ from rest_framework import viewsets, status
 import pymongo
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
-import os, json
-from pathlib import Path
-from django.core.exceptions import ImproperlyConfigured
-from django.http import JsonResponse
+# import os, json
+# from pathlib import Path
+# from django.core.exceptions import ImproperlyConfigured
 from bson import json_util
+from core.views import *
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+MONGODB_HOST_FILE = getMongoDBConnectHostFile()
 
-secret_file = os.path.join(BASE_DIR, 'secrets.json')
-with open(secret_file) as f:
-    secrets = json.loads(f.read())
+# BASE_DIR = Path(__file__).resolve().parent.parent
 
-def get_secret(setting):
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = "Set the {} environment variable".format(setting)
-        raise ImproperlyConfigured(error_msg)
+# secret_file = os.path.join(BASE_DIR, 'secrets.json')
+# with open(secret_file) as f:
+#     secrets = json.loads(f.read())
 
-MONGODB_HOST_FILE = get_secret("MONGODB_HOST")
+# def get_secret(setting):
+#     try:
+#         return secrets[setting]
+#     except KeyError:
+#         error_msg = "Set the {} environment variable".format(setting)
+#         raise ImproperlyConfigured(error_msg)
+
+# MONGODB_HOST_FILE = get_secret("MONGODB_HOST")
 
 client = pymongo.MongoClient(MONGODB_HOST_FILE)
 dbname = client['test_db']
@@ -63,7 +65,17 @@ class UsersViewSet(viewsets.ModelViewSet):
         collection.update_one({"name": pk}, {"$set":{"house":house}})
         return Response({'status': 'S'}, status=status.HTTP_200_OK)
 
-    def destory(self, request):
-        print(request)
-        collection.remove({"name": "test22"})
+ 
+    def destroy(self, request, pk=None):
+        requestEmail = request.data.get('email')
+        requestName = request.data.get('name')
+
+        reqData = {}
+        if requestEmail != None:
+            reqData['email'] = requestEmail
+        if requestName != None:
+            reqData['name'] = requestName
+  
+        collection.delete_one(reqData)
         return Response({'status': 'S'}, status=status.HTTP_200_OK)        
+
