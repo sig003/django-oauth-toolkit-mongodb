@@ -3,7 +3,8 @@ import pymongo
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from bson import json_util
-from core.utils import *
+import json
+from DrfOauthMongodb.utils import getMongoDBConnectHostFile
 
 MONGODB_HOST_FILE = getMongoDBConnectHostFile()
 
