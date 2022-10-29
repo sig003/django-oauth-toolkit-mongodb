@@ -18,7 +18,7 @@ class UsersViewSet(viewsets.ModelViewSet):
     def list(self, request):
         requestEmail = request.data.get('email')
         requestName = request.data.get('name')
-
+        
         reqData = {}
         if requestEmail != None:
             reqData['email'] = requestEmail
