@@ -4,7 +4,7 @@ from rest_framework import serializers
 class HouseSerializer(serializers.Serializer):
     house_id = serializers.CharField()
 
-class InsertUserSerializers(serializers.ModelSerializer):
+class UserSerializers(serializers.ModelSerializer):
     email = serializers.CharField(required=True)
     name = serializers.CharField(required=True)
     house = serializers.ListField(required=True)
