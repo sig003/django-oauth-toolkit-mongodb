@@ -24,3 +24,8 @@ class SelectUserSerializers(serializers.ModelSerializer):
         model = Users
         #fields = '__all__'
         fields = ('email',)
+
+class HouseSerializers(serializers.ModelSerializer):
+    class Meta:
+        model =  Houses
+        fields = '__all__'       
