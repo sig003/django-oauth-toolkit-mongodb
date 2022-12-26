@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users.models import User
+from DrfOauthMongodb.api import CustomTokenView
 admin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
+    path('houses/', include('houses.urls')),
     path('drf/', include('drf_house_test.urls')),
     path('pymongo/', include('pymongo_db_control.urls')),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    path('o/customtoken/', CustomTokenView.as_view(), name='token_obtain_pair'),
 ]
